@@ -164,6 +164,13 @@ This SHAP plot reveals how **country codes** (following **ISO 3166-1**) contribu
 
 ---
 
+## Conclusion
+This project provides valuable insights into the temporal and geographical dynamics of COVID-19-related discussions on Twitter during the early stages of the pandemic. By focusing on a concise, ten-day window (February 1–10, 2020), we identified that weekends exhibit a clear spike in tweet volume, whereas weekdays and specific dates show minimal influence. At the same time, geographical disparities emerge as major drivers of tweet activity, with countries like the United States and China dominating overall volume. Through SHAP analyses, we confirmed that both the “weekend” factor and specific high-engagement countries have the strongest impact on predicting tweet counts.
+
+These findings underscore the importance of temporal and spatial features when examining social media data related to global crises. Despite this, there are inherent limitations—including a relatively short time frame and the complexities of early COVID-19 discussions—that must be considered when generalizing results. Future work could leverage longer periods, more granular location data, or advanced machine learning and natural language processing techniques (e.g., sentiment analysis, topic modeling) to provide a deeper understanding of how public discourse evolves during major health emergencies. Ultimately, our results highlight the need for timely, data-driven analyses to inform public health communication strategies and policy decisions on a global scale.
+
+---
+
 ## References
 - [GeoCoV19 Dataset](https://crisisnlp.qcri.org/covid19)  
 - [SHAP Documentation](https://shap.readthedocs.io/en/latest/index.html)  
