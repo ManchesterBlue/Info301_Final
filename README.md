@@ -1,151 +1,174 @@
 # INFOSCI 301 Final Project
-Author: Shouzhifan Zhu
 
-Instructor: Prof. Luyao Zhang
+**Author**: Shouzhifan Zhu
 
-# Research Question
-The research analyzes how COVID-19-related tweets are distributed temporally and geographically. Specifically, the study aims to:
+**Instructor**: Prof. Luyao Zhang  
 
-## Investigate Temporal Trends:
-Examine how tweet frequency varies depending on the day of the week and the month. The analysis will explore whether there is a noticeable increase in tweets on weekends or during specific months, and how these temporal factors impact the overall volume of tweets related to COVID-19.
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Research Question](#research-question)
+3. [Dataset](#dataset)
+    - [Original Data Sources and Collection](#original-data-sources-and-collection)
+    - [Geographical Coverage](#geographical-coverage)
+    - [Temporal Coverage](#temporal-coverage)
+    - [Languages](#languages)
+    - [Data Structure](#data-structure)
+    - [Data Features](#data-features)
+    - [Data Processing and Preprocessing](#data-processing-and-preprocessing)
+4. [Analysis Tools](#analysis-tools)
+5. [Results](#results)
+    - [1. Temporal Distribution (SHAP Plot)](#1-temporal-distribution-shap-plot)
+    - [2. Global Distribution of Tweets](#2-global-distribution-of-tweets)
+    - [3. SHAP Values for Geographical Distribution](#3-shap-values-for-geographical-distribution)
+6. [References](#references)
 
-## Explore Geographical Patterns
-Analyze how tweet volume varies across different countries and cities. The goal is to understand the geographical distribution of COVID-19-related tweets, identify regions with the highest levels of tweet activity, and compare trends across different locations.
+---
 
-## Assess the Impact of Features
-Use advanced techniques like SHAP (**SHAP**ley Additive Explanations) to evaluate the contribution of various features, such as weekday, month, and geographic location, to the predicted tweet counts. This step aims to quantify how much each feature influences the model’s predictions and identify which ones are the most significant.
+## Introduction
+This project explores the distribution of COVID-19-related tweets from **February 1 to February 10, 2020**. We aim to uncover **temporal trends** (daily, monthly) and **geographical patterns** (by country, city), while also assessing the **impact of different features** on tweet volume predictions using **SHAP** (SHapley Additive exPlanations). By highlighting these trends, we hope to offer insights into global engagement and discussion patterns around the COVID-19 pandemic during its early stages.
 
-The overall objective is to understand the dynamics behind the volume and distribution of COVID-19-related tweets, shedding light on both time-based and location-based factors that contribute to the spread of information during the pandemic.
+---
 
-# Dataset
-The dataset consists of COVID-19-related tweets collected from February 1 to 10, 2020, providing a comprehensive overview of the global conversation around the pandemic.
+## Research Question
 
-As a result of the [GitHub file size limitation protocol](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github), users are not allowed to upload extremely large files. Thus, we are providing a [BOX folder link](https://duke.box.com/s/mlamr9af858ayo6vbca215mg95477we2) for readers to access the explicit dataset we are using. FYI, the original dataset is published on [GeoCoV19 Page](https://crisisnlp.qcri.org/covid19). Note that due to such memory limitation, we try to utilize a **few-shot learning** on this project by selecting a data of ten days.
+1. **Investigate Temporal Trends**  
+   - Examine how tweet frequency varies by day of the week and month.  
+   - Explore whether there is a noticeable increase on weekends or specific months.
 
-## Original Data Sources and Collection
-- The data is sourced from **Twitter**, focusing on tweets related to COVID-19, including those containing keywords, hashtags, and mentions related to the virus.
-- Tweets were collected using over **800 predefined keywords** and hashtags associated with COVID-19.
-- **Geotagging**: The dataset contains both **geotagged tweets** (378K tweets) and tweets with **location data** but without explicit geotags (5.4 million tweets).
+2. **Explore Geographical Patterns**  
+   - Analyze tweet volume across different countries and cities.  
+   - Identify regions with the highest activity and compare trends across locations.
 
-## Geographical Coverage
-- The dataset provides a **global perspective**, covering **218 countries** and **47,328 cities**.
-- Data includes **location-based features**, allowing for an analysis of tweet distributions by **country** and **city**.
-- The **country codes** in the dataset follow the **ISO 3166-1** standards, with countries identified by their respective codes.
+3. **Assess the Impact of Features (via SHAP)**  
+   - Evaluate how features like `weekday`, `month`, and `geographical location` contribute to **predicted tweet counts**.  
+   - Determine which features have the most significant influence on the model’s predictions.
 
-## Temporal Coverage
-- The dataset spans a significant period of time, providing a timeline of tweets from the onset of the COVID-19 pandemic to the present.
-- Tweets are **timestamped**, allowing for an analysis of trends and patterns over time. Temporal features like **day of the week** and **month** are included, enabling researchers to assess tweet activity on different days and months.
+---
 
-## Languages
-- The dataset is **multilingual**, containing tweets in **62 languages**, allowing researchers to analyze global sentiment and regional differences in response to the pandemic.
-- The diversity in language makes the dataset suitable for **multilingual sentiment analysis** and understanding regional variations in COVID-19 discussions.
+## Dataset
 
-## Data Structure
-The data is organized into structured **CSV files** with key attributes, including:
-- `Tweet ID`: A unique identifier for each tweet.
-- `Created_at`: Timestamp of when the tweet was posted.
-- `User Information`: Includes user ID, and sometimes, user location.
-- `Geo-Location Data`: Geographical information about where the tweet originated, including country, state, and city details.
-- `Tweet Content`: The textual content of the tweet, which could contain relevant hashtags or mentions.
-- `Country/City Information`: The geographical region associated with the tweet.
-- `Tweet Count`: The number of tweets related to COVID-19 over a specific time period (e.g., per day, week, or month).
+The dataset comprises COVID-19-related tweets from **February 1 to February 10, 2020**. Due to [GitHub’s file size limitations](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github), the explicit dataset is provided through a [BOX folder link](https://duke.box.com/s/mlamr9af858ayo6vbca215mg95477we2). The original dataset is published on the [GeoCoV19 page](https://crisisnlp.qcri.org/covid19).
 
-## Data Features
-- **Temporal Features**: Date, time of tweet creation, and derived features such as weekday and month.
-- **Geographical Features**: Country, state, and city identifiers.
-- **Tweet Metrics**: Tweet counts, including the total number of tweets over a specified time period.
-- **Content Features**: The text of the tweets, which can be used for sentiment analysis and topic modeling.
+> **Note**: We employed a **few-shot** approach by selecting a **ten-day** subset (February 1–10, 2020) for this project.
 
-## Data Processing and Preprocessing
-- The dataset has undergone **preprocessing** to standardize the data, including timestamp formatting, geolocation matching, and aggregation based on time (e.g., daily or monthly tweet counts).
-- Additional processing, such as **feature scaling**, is used to prepare the data for analysis using machine learning techniques.
+### Original Data Sources and Collection
+- **Twitter**: Tweets are related to COVID-19 (keywords, hashtags, mentions).
+- **Collection Method**: Over **800 predefined keywords** associated with COVID-19.
+- **Geotagging**:  
+  - **378K** geotagged tweets.  
+  - **5.4 million** tweets with location data but without explicit geotags.
+
+### Geographical Coverage
+- **Global** scope: **218 countries** and **47,328 cities**.
+- **Location-based features** allow analysis by **country** and **city**.
+- **ISO 3166-1** standard for country codes.
+
+### Temporal Coverage
+- From early pandemic onset to a selected timeframe (Feb 1–10, 2020).
+- **Timestamped** tweets for time-based analysis (e.g., day of the week, month).
+
+### Languages
+- **Multilingual** dataset with tweets in **62 languages**.
+- Enables analysis of **regional differences** and **multilingual sentiment**.
+
+### Data Structure
+- **Format**: Structured **CSV files** with:
+  - `Tweet ID`
+  - `Created_at` (timestamp)
+  - `User Information` (user ID, user location)
+  - `Geo-Location Data` (country, state, city)
+  - `Tweet Content` (text, hashtags, mentions)
+  - `Country/City Information`
+  - `Tweet Count` (aggregations per day/week/month)
+
+### Data Features
+- **Temporal**: Date, time, `weekday`, `month`.
+- **Geographical**: Country, state, city identifiers.
+- **Tweet Metrics**: Count of tweets for given time intervals.
+- **Content**: Text for sentiment analysis or topic modeling.
+
+### Data Processing and Preprocessing
+- **Standardization**: Timestamp formatting, geolocation matching, aggregated counts.
+- **Feature Scaling**: Prepares data for ML analyses (e.g., model training).
+- **Aggregation**: Daily or monthly tweet counts.
+
+---
 
 ## Analysis Tools
-The dataset is compatible with various analytical tools, including:
-- **Machine Learning Models**: For trend prediction, sentiment analysis, and feature importance analysis (e.g., SHAP values).
-- **Geospatial Analysis**: Tools like **Geopandas** and **Plotly** are used to map tweet distributions and identify geographic trends.
-- **Time Series Analysis**: Methods to explore temporal patterns in tweet activity, such as seasonal trends and weekly variations.
+- **Machine Learning Models**: For trend prediction, sentiment analysis, feature importance (SHAP).
+- **Geospatial Analysis**: Using **GeoPandas**, **Plotly**, or similar libraries.
+- **Time Series Analysis**: Identifying seasonal trends and weekly variations in tweet activity.
 
-# Result
-## Temporal Distribution in SHAP Plot
+---
 
-![image](https://github.com/user-attachments/assets/d15ca7c3-4df6-4cb8-aa56-211cbf73fc1f)  
+## Results
 
-The **SHAP plot**, with its official page [here](https://shap.readthedocs.io/en/latest/index.html), provides a detailed examination of the impact of temporal features on the model's output, specifically focusing on tweet volume with respect to time. This analysis evaluates the following features: `Is Weekend`, `Weekday`, `Date (Ordinal)`, and `Month`. Each of these features is assessed in terms of its contribution to the predicted tweet volume, with SHAP values representing the feature’s influence on the model.
+### 1. Temporal Distribution (SHAP Plot)
 
-### `Is Weekend`
-- **Feature Overview**: The `Is Weekend` feature indicates whether a tweet was posted on a weekend (Saturday or Sunday).
-- **SHAP Value Distribution**: The SHAP values for **Is Weekend** show a notable concentration of positive values, denoted by red dots, with some negative values (blue dots).
-- **Interpretation**: A positive SHAP value indicates that tweets posted on weekends contribute significantly to an increase in tweet volume. Specifically, the model predicts higher tweet volumes on weekends, suggesting a higher engagement or activity on these days. The presence of red values confirms that weekend tweets have a substantial positive impact on the predicted outcome, while the blue values imply a relatively minor reduction in impact for non-weekend days.
+![Temporal SHAP Plot](https://github.com/user-attachments/assets/d15ca7c3-4df6-4cb8-aa56-211cbf73fc1f)
 
-### `Weekday`
-- **Feature Overview**: The `Weekday` feature categorizes tweets based on the day of the week, with values indicating each weekday (Monday through Friday).
-- **SHAP Value Distribution**: The SHAP values for **Weekday** are distributed with a mix of values close to zero, with a slight positive impact observed in some cases (pink) and minimal negative impacts (blue).
-- **Interpretation**: The limited spread of SHAP values near zero suggests that **Weekday** does not have a strong influence on tweet volume. The near-zero distribution implies that tweet activity across weekdays is relatively stable, with no significant day-specific spikes or dips observed in the data. While there are some positive contributions for certain weekdays, the impact is not large enough to make weekday a major factor in predicting tweet volume.
+This **SHAP** plot (learn more at [SHAP’s documentation](https://shap.readthedocs.io/en/latest/index.html)) demonstrates how **temporal features** (`Is Weekend`, `Weekday`, `Date (Ordinal)`, and `Month`) affect the model’s predicted tweet volume.
 
-### `Date (Ordinal)`
-- **Feature Overview**: The `Date (Ordinal)` feature represents the sequential day of the year, effectively capturing the passage of time as tweets are posted over the months.
-- **SHAP Value Distribution**: The SHAP values for **Date (Ordinal)** are concentrated around zero, showing minimal variability in their impact on the model’s predictions.
-- **Interpretation**: The lack of significant SHAP values indicates that the specific date within the year does not greatly affect tweet volume. This suggests that there is no clear trend in tweet activity based purely on the passage of days in the year. It highlights the absence of day-specific effects in tweet counts, where tweet volume appears to be more influenced by other factors, such as weekends or external events, rather than by the specific date.
+1. **Is Weekend**  
+   - Higher **positive SHAP values** on weekends, indicating an **increase** in tweet volume.  
+   - Suggests weekends are a **significant** driver of higher COVID-19 tweet activity.
 
-### `Month`
-- **Feature Overview**: The `Month` feature captures the month of the year in which a tweet was posted, allowing for the analysis of seasonal trends or monthly fluctuations in tweet volume.
-- **SHAP Value Distribution**: The SHAP values for **Month** are relatively dispersed, with a small range of positive and negative values observed. Most values are close to zero, but a few extend to positive values.
-- **Interpretation**: The **Month** feature shows a weak influence on tweet volume, with small positive SHAP values indicating that certain months may have slightly higher tweet activity, while negative values suggest that other months contribute slightly less to tweet volume. Despite some variation, the overall influence of **Month** is minimal compared to other time-based features like **Is Weekend**.
+2. **Weekday**  
+   - Values hover around zero, implying **weekdays** do not strongly influence tweet counts.  
+   - Minor positive effects for certain days, but overall **weak** predictive power.
 
-### Conclusion
-The SHAP analysis reveals that Is Weekend has the most pronounced effect on tweet volume, with tweets posted on weekends contributing significantly to higher predicted tweet counts. In contrast, Weekday and Date (Ordinal) exhibit minimal impact, with tweet volume appearing unaffected by the specific weekday or date within the year. The Month feature shows a slight influence, with some months contributing marginally to the increase or decrease in tweet volume. Overall, the data suggests that time-related factors like weekends play a critical role in driving tweet activity, while other temporal aspects (weekdays, dates, and months) have less substantial effects on the overall volume of COVID-19 related-tweets.
+3. **Date (Ordinal)**  
+   - SHAP values concentrated near zero, showing **no strong day-specific** trend in tweet volume.  
+   - Indicates **no clear** daily progression effect.
 
+4. **Month**  
+   - Slight variations around zero; some months show mildly **positive** or **negative** contributions.  
+   - Less influential than **Is Weekend** in shaping tweet volume.
 
-## Global Distribution of Tweets Across Areas
+**Conclusion**: **Weekends** are most impactful on tweet counts, while weekdays, ordinal dates, and months have notably less effect on COVID-19 tweet volume in this subset.
 
-![image](https://github.com/user-attachments/assets/c7737615-e0fe-4829-a350-25a3f60fc0d6)  
+---
 
-The map shown represents the global distribution of COVID-19-related tweets across different geographical regions. The map visualizes the tweet volume by country, with a color gradient indicating the number of tweets from each country. The intensity of the color corresponds to tweet counts, allowing for a comparative understanding of how tweet activity varies across the world.
+### 2. Global Distribution of Tweets
 
-### Color Scale Interpretation
-- The **color scale** on the right side of the map indicates the range of tweet counts, from **0 tweets** (lightest color) to **10 million tweets** (darkest color).
-- Countries with a **darker shade** (such as the United States and China) have a significantly higher number of COVID-19 related tweets, with tweet counts exceeding 8 million in these areas.
-- **Lighter shades** represent countries with lower tweet volumes, indicating less engagement or fewer COVID-19 related discussions.
+![Global Tweet Distribution](https://github.com/user-attachments/assets/c7737615-e0fe-4829-a350-25a3f60fc0d6)
 
-### Key Observations
-- **United States**: The map shows the **United States** with the highest concentration of tweets, marked by the darkest shade, indicating that it is one of the most active regions in terms of tweet volume related to COVID-19.
-- **China**: Similarly, **China** also shows a high number of tweets, reflected by a dark color, indicating significant engagement from users in this region.
-- **Other High-Tweet Countries**: Several other countries, including **India**, **Brazil**, and **Russia**, display medium to high tweet counts, represented by shades of brown. These regions also show notable engagement on the topic of COVID-19.
-- **Low-Tweet Countries**: Many countries in regions such as **Africa** and **Central Asia** show very light shades, suggesting that tweet volume in these regions is significantly lower compared to others. This could be due to factors such as lower social media penetration, fewer COVID-19 cases, or other regional factors.
+A world map visualizing **COVID-19-related tweet volumes**. A color gradient represents tweet counts per country:
 
-### Geographical Patterns
-- The map visually emphasizes how **geographical location** impacts the volume of tweets. Regions with higher population densities and stronger social media engagement, such as **North America** and **Asia**, tend to have higher tweet volumes.
-- Developed regions with robust social media infrastructure, such as the **United States** and **Europe**, are well represented on the map, whereas less developed regions show lower tweet counts.
-- **Global Disparity**: The map also highlights the disparity in global engagement, with some countries experiencing massive tweet activity and others showing very minimal online discourse regarding COVID-19.
+- **Darkest shades**: Indicates **highest** tweet counts (e.g., **USA**, **China**).  
+- **Medium shades**: Moderately high tweet activity (e.g., **India**, **Brazil**, **Russia**).  
+- **Lightest shades**: Very low tweet activity (e.g., certain areas in **Africa**, **Central Asia**).
 
-### Conclusion
-The map of global tweet distribution illustrates the significant **regional variation** in COVID-19-related tweet activity. It highlights regions such as the **United States** and **China** with substantial engagement, while other regions, particularly in **Africa** and parts of **Asia**, show lower engagement. This map provides valuable insights into the **geographical influence** on social media activity and the global spread of COVID-19-related discussions.
+**Key Observations**:
+- **USA & China**: Highest engagement, surpassing **8 million** tweets.
+- **Developed regions**: North America, Europe, parts of Asia show robust activity.
+- **Global Disparities**: Lower engagement in regions with limited internet access or smaller populations on Twitter.
 
+**Conclusion**: There is a **significant regional variation**, influenced by population, internet penetration, and social media usage, reflecting **global disparities** in pandemic-related discussions.
 
-## SHAP Values for Geographical Distribution
+---
 
-![image](https://github.com/user-attachments/assets/f0fcca17-9345-40c9-8d14-4fefdcebe135)  
+### 3. SHAP Values for Geographical Distribution
 
-The SHAP plot shown here illustrates the impact of geographical features on the model's prediction of tweet counts, specifically based on the **country** feature. The countries are represented by their respective **ISO country codes**, and the SHAP values indicate how strongly each country contributes to the model’s predicted tweet volume.
+![Geographical SHAP Plot](https://github.com/user-attachments/assets/f0fcca17-9345-40c9-8d14-4fefdcebe135)
 
-### `Color Scale` Interpretation
-- The `color scale` on the right side represents the feature values, with **red** indicating high values and **blue** representing low values.
-- This color gradient reflects the tweet volume, where countries with `high tweet counts` are marked by red and **low tweet counts** are marked by blue.
+This SHAP plot reveals how **country codes** (following **ISO 3166-1**) contribute to predicted tweet volume:
 
-### Key Observations
-- **USA (United States)**: The **USA** has the highest SHAP value, marked with a red color. This indicates that the United States contributes significantly to the overall tweet volume, as the model strongly associates this region with higher tweet activity.
-- **China (CHN)**: **China** also shows a high SHAP value, though slightly lower than the USA, indicating that China is another major contributor to tweet counts. The color remains in the red spectrum, signaling substantial engagement.
-- **Other High-Tweet Countries**: Countries such as **Spain (ESP)**, **France (FRA)**, and **Italy (ITA)** also show moderate to high SHAP values, marked in varying shades of pink, indicating a noteworthy contribution to the overall tweet volume prediction.
-- **Low-Tweet Countries**: On the lower end of the SHAP value scale, countries like **Seychelles (SYC)**, **Lesotho (LSO)**, and **Tokelau (TKL)** exhibit much lower SHAP values. These countries have minimal tweet volumes, as indicated by the **blue** coloring, signifying their relatively insignificant impact on the model’s overall predictions.
+- **Color Scale**: Red = **High tweet volume**, Blue = **Low tweet volume**.  
+- **USA**: Dominant influence (strongest red), indicating highest impact on predictions.  
+- **China (CHN)**: Also significant (red), reflecting large tweet counts.  
+- **Spain (ESP), France (FRA), Italy (ITA)**: Moderate-high influence.  
+- **Less Active Countries** (e.g., Seychelles (SYC), Lesotho (LSO)): Minimal effect (blue).
 
-### Geographical Influence
-- The SHAP values clearly show that countries with higher population densities and more active social media usage, such as the **United States**, **China**, and **Spain**, significantly influence the total volume of tweets. These countries have stronger positive contributions to the prediction.
-- In contrast, smaller nations or those with fewer social media interactions, such as **Seychelles** and **Lesotho**, have minimal impact on the model, contributing relatively fewer tweets.
+**Conclusion**: Large, populous, and social-media-active nations (USA, China) drive the overall global tweet volume prediction. Smaller or less connected countries exhibit lower SHAP values, underscoring **geographical disparities** in COVID-19-related tweeting behavior.
 
-### Overall Distribution
-- The chart illustrates a clear **geographical disparity** in tweet volume, with **North America**, **Europe**, and **Asia** being the regions most strongly represented. These regions are marked by the highest SHAP values and contribute significantly to the global tweet count.
-- Conversely, countries from **Africa** and small island nations show less tweet activity, as reflected in their lower SHAP values.
+---
 
-### Conclusion
-This SHAP plot provides an insightful representation of how **geographical location** influences tweet volume. It highlights the dominance of large, highly connected countries such as the **USA** and **China** in driving the model’s predictions for tweet volume. Smaller or less active countries, represented by lower SHAP values, contribute less to the overall prediction, reflecting global disparities in tweet activity related to COVID-19.
+## References
+- [GeoCoV19 Dataset](https://crisisnlp.qcri.org/covid19)  
+- [SHAP Documentation](https://shap.readthedocs.io/en/latest/index.html)  
+- [GitHub Large File Limitations](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)  
+
+---
+
+**Thank you** for reading through this project overview. If you have any questions or would like to contribute, please feel free to open an **Issue** or submit a **Pull Request**.
