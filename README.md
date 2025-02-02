@@ -75,6 +75,9 @@ This dataset offers a rich resource for understanding global conversations aroun
 # Result
 
 ## Temporal Distribution in SHAP Plot
+
+![image](https://github.com/user-attachments/assets/d15ca7c3-4df6-4cb8-aa56-211cbf73fc1f)  
+
 The SHAP (SHapley Additive Explanations) plot provides a detailed examination of the impact of temporal features on the model’s output, specifically focusing on tweet volume in relation to time. This analysis evaluates the following features: **Is Weekend**, **Weekday**, **Date (Ordinal)**, and **Month**. Each of these features is assessed in terms of its contribution to the predicted tweet volume, with SHAP values representing the feature’s influence on the model.
 
 ### 1. Is Weekend:
@@ -103,6 +106,9 @@ The SHAP analysis reveals that **Is Weekend** has the most pronounced effect on 
 ---
 
 ## Global Distribution of Tweets Across Areas
+
+![image](https://github.com/user-attachments/assets/c7737615-e0fe-4829-a350-25a3f60fc0d6)  
+
 The map shown represents the global distribution of COVID-19 related tweets across different geographical regions. The map visualizes the tweet volume by country, with a color gradient indicating the number of tweets from each country. The intensity of the color corresponds to tweet counts, allowing for a comparative understanding of how tweet activity varies across the world.
 
 ### 1. Color Scale Interpretation:
@@ -127,6 +133,9 @@ The map of global tweet distribution illustrates the significant **regional vari
 ---
 
 ## SHAP Values for Geographical Distribution
+
+![image](https://github.com/user-attachments/assets/f0fcca17-9345-40c9-8d14-4fefdcebe135)  
+
 The SHAP (SHapley Additive Explanations) plot shown here illustrates the impact of geographical features on the model’s prediction of tweet counts, specifically based on the **country** feature. The countries are represented by their respective **ISO country codes**, and the SHAP values indicate how strongly each country contributes to the model’s predicted tweet volume.
 
 ### 1. Color Scale Interpretation:
