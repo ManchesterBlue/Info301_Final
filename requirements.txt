@@ -5,3 +5,8 @@ pycountry
 xgboost
 shap
 pmdarima
+numpy
+dash
+json
+dash_cytoscape
+networkx
