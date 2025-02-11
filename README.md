@@ -50,6 +50,7 @@ This project integrates multiple datasets to analyze the impact of COVID-19 on g
 - [**GeoCov19 Twitter Dataset**](https://crisisnlp.qcri.org/covid19): A large collection of geotagged and location-metadata tweets related to COVID-19.
 - [**OpenICPSR COVID-19 Sentiment and Topic Dataset**](https://www.openicpsr.org/openicpsr/project/120321/version/V12/view): A dataset containing sentiment classification and topic modeling of COVID-19-related tweets.
 - [**Our World in Data COVID-19 Statistics**](https://ourworldindata.org/covid-cases): Aggregated COVID-19 case numbers, hospitalizations, recoveries, and government policy responses.
+- [**COVID-19 Global Case and Policy Dataset**](https://covid19datahub.io/): This dataset compiles country-level data on confirmed COVID-19 cases, deaths, recoveries, hospitalizations, and vaccinations.
 
 ### Original Data Sources and Collection
 - **Social Media (Twitter)**: Public discussions on COVID-19 were collected using over **800 predefined keywords** and hashtags.
