@@ -23,6 +23,9 @@
 ## Introduction
 This project explores the relationship between global COVID-19 infection trends, government policies, and public sentiment on social media. By integrating epidemiological data, policy response measures, and large-scale Twitter data, we aim to understand how public discussions evolved alongside the pandemic's progression. The project employs **SHAP (Shapley Additive Explanations)** to break down the contribution of various temporal, geographical, and policy-driven factors, offering interpretable insights into what drives pandemic-related social media engagement.
 
+<img width="888" alt="image" src="https://github.com/user-attachments/assets/64a584b7-17eb-40c7-ad71-48f2257ffe71" />
+
+
 ---
 
 ## Research Questions
@@ -78,6 +81,40 @@ This project integrates multiple datasets to analyze the impact of COVID-19 on g
 - **Standardization**: Cleaning and structuring timestamps, geolocation data, and policy response tracking.
 - **Feature Engineering**: Extracting key variables for machine learning models.
 - **Aggregation**: Analysis of tweet counts, case numbers, and policy measures across time intervals.
+
+---
+
+## Visualization
+### Global Spread of COVID-19 Over Time
+<img width="888" alt="image" src="https://github.com/user-attachments/assets/153a19fa-06c0-4913-a68c-5b1676e78ec4" />
+
+### Government Policy Responses and Their Evolution
+<img width="888" alt="image" src="https://github.com/user-attachments/assets/8b049ab5-4970-444d-95ae-678f239a3ee5" />
+
+### Tweet Volume and Global Social Media Engagement
+<img width="888" alt="image" src="https://github.com/user-attachments/assets/a95898ba-f407-41d4-9247-a2ffce4b2033" />
+
+### Relationship Between Confirmed Cases and Government Stringency
+<img width="888" alt="image" src="https://github.com/user-attachments/assets/aaf0e53b-9fa9-4d03-85ff-a6d53c358f0a" />
+
+### COVID-19 Trends in the Most Affected Countries
+<img width="888" alt="image" src="https://github.com/user-attachments/assets/cf7a427f-3d50-4076-9eab-02ede4a01e95" />
+
+### SHAP Summary Plot for Temporal Features (Tweet Volume)
+<img width="369" alt="image" src="https://github.com/user-attachments/assets/b4925a41-1690-4c20-9315-c4ca2a8add25" />
+
+### SHAP Summary Plot for Temporal Features (COVID-19 Cases)
+<img width="371" alt="image" src="https://github.com/user-attachments/assets/dde2a20d-63c3-496d-a5c1-a5193b6041a7" />
+
+### SHAP Summary Plot for Geographical Features (Tweet Volume)
+<img width="234" alt="image" src="https://github.com/user-attachments/assets/addf1f6b-2ac0-4da1-bf23-ef4f9d2281f5" />
+
+### SHAP Summary Plot for Geographical Features (COVID-19 Cases)
+<img width="283" alt="image" src="https://github.com/user-attachments/assets/11a99056-a080-4692-8bea-c578ef24d39d" />
+
+### SHAP Summary Plot for Government Policy Measures
+<img width="299" alt="image" src="https://github.com/user-attachments/assets/4d8bf4d8-e93e-462f-b04a-2e203c5a797b" />
+
 
 ---
 
