@@ -20,6 +20,21 @@ This project examines the interplay between global COVID-19 infection trends, go
 
 ![image](https://github.com/user-attachments/assets/6af6a0c0-29e6-4a74-a439-389d08f0ae0e)
 
+## Research Questions
+
+1. **COVID-19 Spread and Evolution**  
+   - How did COVID-19 infection trends fluctuate across different regions and time periods?  
+   - What patterns emerged in confirmed cases, hospitalizations, and deaths over the course of the pandemic?  
+
+2. **Government Policy Impact**  
+   - How did various government interventions (e.g., lockdowns, travel restrictions, vaccination campaigns) influence infection rates?  
+   - Did stricter policies lead to noticeable shifts in public sentiment and social media engagement?  
+
+3. **Public Sentiment and Social Media Trends**  
+   - How did COVID-19-related Twitter activity change over time and across geographical regions?  
+   - What were the dominant emotions and topics discussed, and how did they align with major pandemic events and policy changes?  
+
+---
 
 ## Disclaimer
 
@@ -40,6 +55,8 @@ We would like to extend our gratitude to the following individuals and resources
 
 Their collective contributions have significantly shaped the depth and scope of our project.
 
+---
+
 ## Navigation Instructions
 
 To explore this repository, follow the instructions below:
@@ -56,24 +73,6 @@ The `Docs` folder contains supplementary materials, reports, and references for 
 ### [Pilot Visualizations & Figures](https://github.com/ManchesterBlue/Info301_Final/tree/main/Visualization)
 The `Visualization` folder provides sample visualizations and figures generated during the analysis.
 
-
-
----
-
-## Research Questions
-
-1. **COVID-19 Spread and Evolution**  
-   - How did COVID-19 infection trends fluctuate across different regions and time periods?  
-   - What patterns emerged in confirmed cases, hospitalizations, and deaths over the course of the pandemic?  
-
-2. **Government Policy Impact**  
-   - How did various government interventions (e.g., lockdowns, travel restrictions, vaccination campaigns) influence infection rates?  
-   - Did stricter policies lead to noticeable shifts in public sentiment and social media engagement?  
-
-3. **Public Sentiment and Social Media Trends**  
-   - How did COVID-19-related Twitter activity change over time and across geographical regions?  
-   - What were the dominant emotions and topics discussed, and how did they align with major pandemic events and policy changes?  
-
 ---
 
 ## Dataset
@@ -85,6 +84,18 @@ This project integrates multiple datasets to analyze the impact of COVID-19 on g
 - [**COVID-19 Global Case and Policy Dataset**](https://covid19datahub.io/): This dataset compiles country-level data on confirmed COVID-19 cases, deaths, recoveries, hospitalizations, and vaccinations.
 
 By integrating these diverse datasets, our study captures the intersection of epidemiological trends, government interventions, and public sentiment. This approach enables a deeper understanding of how policy measures shaped public discourse and how social media activity reflected pandemic developments. The analysis also helps assess whether social media trends can serve as early indicators of public health concerns, providing valuable insights for crisis management and policy adaptation.
+
+## Embedded Media
+### Demo Video
+
+[![Watch the video](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://github.com/ManchesterBlue/Info301_Final/raw/main/Docs/demo_video.mp4)
+
+🔹 **This is a no-subtitle version.**  
+🔹 **For the subtitled version, please visit** [this link](https://duke.box.com/s/x0pja0lni6inxcb41dkn40tsviadxgts).
+
+
+### Poster
+![Final_Poster](https://github.com/user-attachments/assets/e379b793-f2e3-4f52-8574-d94232fb923e)
 
 ---
 
