@@ -4,15 +4,30 @@
 **Author**: Shouzhifan Zhu  
 **Instructor**: Prof. Luyao Zhang  
 
-##
-
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [Research Questions](#research-questions)
-3. [Dataset](#dataset)
-4. [Analysis Tools](#analysis-tools)
-5. [Results](#results)
-6. [References](#references)
+
+- [Overview](#overview)
+- [Research Questions](#research-questions)
+- [Disclaimer](#disclaimer)
+- [Acknowledgments](#acknowledgments)
+- [Navigation Instructions](#navigation-instructions)
+- [Dataset](#dataset)
+- [Applications](#applications)
+- [Embedded Media](#embedded-media)
+  - [Demo Video](#demo-video)
+  - [Poster](#poster)
+- [Statement of Intellectual and Professional Growth](#statement-of-intellectual-and-professional-growth)
+- [Implementation](#implementation)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    1. [Visualize COVID-19 Trends and Policy Impacts](#1-visualize-covid-19-trends-and-policy-impacts)
+    2. [Explore Social Media Reactions and Sentiment](#2-explore-social-media-reactions-and-sentiment)
+    3. [SHAP Analysis for Policy and Social Media Influence](#3-shap-analysis-for-policy-and-social-media-influence)
+    4. [Geospatial Visualizations and Mapping](#4-geospatial-visualizations-and-mapping)
+    5. [Policy Response and Network Analysis](#5-policy-response-and-network-analysis)
+- [License](#license)
+- [References](#references)
 
 ---
 ## Overview
