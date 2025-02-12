@@ -15,10 +15,8 @@
 6. [References](#references)
 
 ---
-## Introduction
+## Overview
 This project examines the interplay between global COVID-19 infection trends, government policies, and public sentiment on social media. By integrating epidemiological data, policy measures, and large-scale Twitter analysis, we assess how public discourse and engagement evolved throughout different phases of the pandemic. Our study explores key factors influencing tweet volumes and sentiment, highlighting the complex interaction between policy responses, public reactions, and the shifting dynamics of pandemic progression across regions. Through a multi-dimensional approach, this research provides insights into the relationship between crisis communication, government interventions, and public sentiment trends during the COVID-19 pandemic.
-
-![image](https://github.com/user-attachments/assets/6af6a0c0-29e6-4a74-a439-389d08f0ae0e)
 
 ## Research Questions
 
@@ -85,6 +83,42 @@ This project integrates multiple datasets to analyze the impact of COVID-19 on g
 
 By integrating these diverse datasets, our study captures the intersection of epidemiological trends, government interventions, and public sentiment. This approach enables a deeper understanding of how policy measures shaped public discourse and how social media activity reflected pandemic developments. The analysis also helps assess whether social media trends can serve as early indicators of public health concerns, providing valuable insights for crisis management and policy adaptation.
 
+## Applications
+
+1. **Public Health Policy Development**:
+   - Analyze the effectiveness of government interventions, such as lockdowns and travel restrictions, on COVID-19 case trends.
+   - Provide data-driven insights to inform adaptive policymaking and crisis response strategies.
+
+2. **Media and Public Communication**:
+   - Track public sentiment and emotional responses to major COVID-19 events for more effective crisis communication.
+   - Develop targeted messaging strategies to address misinformation and public concerns.
+
+3. **Epidemiological Research**:
+   - Investigate correlations between COVID-19 case surges and public sentiment to improve early warning systems.
+   - Assess the impact of public behavior on infection rates to guide future pandemic preparedness.
+
+4. **Social Media and Digital Analysis**:
+   - Examine how social media engagement fluctuates with policy changes and pandemic phases.
+   - Identify key topics and emotional triggers that drive public discussions about COVID-19.
+
+5. **Machine Learning and Predictive Analytics**:
+   - Utilize SHAP (Shapley Additive Explanations) to interpret the impact of various factors on COVID-19 case predictions.
+   - Develop models to forecast social media reactions to new pandemic developments.
+
+6. **Global and Regional Comparisons**:
+   - Compare pandemic responses and public sentiment trends across different countries and regions.
+   - Highlight best practices from various governments in managing public health crises.
+
+7. **Healthcare and Resource Allocation**:
+   - Use sentiment analysis to detect potential public dissatisfaction and optimize healthcare communication.
+   - Guide the allocation of medical resources based on regional variations in case trends and public concern.
+
+8. **Educational and Training Programs**:
+   - Provide case studies on the intersection of government policy, public sentiment, and epidemiology for academic research.
+   - Develop data-driven tools to enhance public health education and crisis management training.
+  
+---
+
 ## Embedded Media
 ### Demo Video
 
@@ -109,18 +143,18 @@ Through this course, we have gained a deeper appreciation for data visualization
 
 To set up and run this project, you will need to install the following dependencies:
 
-- pandas
-- geopandas
-- plotly
-- pycountry
-- xgboost
-- shap
-- pmdarima
-- numpy
-- dash
-- json
-- dash_cytoscape
-- networkx
+  - `pandas`
+  - `geopandas`
+  - `plotly`
+  - `pycountry`
+  - `xgboost`
+  - `shap`
+  - `pmdarima`
+  - `numpy`
+  - `dash`
+  - `json`
+  - `dash_cytoscape`
+  - `networkx`
 
 ### Installation
 
@@ -204,14 +238,21 @@ pip install -r requirements.txt
   python Code/app/policy_response.py
   ```
 
+## License
+
+This project is distributed under the MIT License. For more details, please refer to the [LICENSE](https://github.com/ManchesterBlue/Info301_Final/blob/main/LICENSE) file.
 
 ---
 
 ## References
-- [GeoCov19 Dataset](https://crisisnlp.qcri.org/covid19)
-- [OpenICPSR COVID-19 Dataset](https://www.openicpsr.org/openicpsr/project/120321/version/V12/view)
-- [Our World in Data COVID-19 Statistics](https://ourworldindata.org/covid-cases)
-- [SHAP Documentation](https://shap.readthedocs.io/en/latest/index.html)
+
+- **Qatar Computing Research Institute (QCRI)**. (2020). *GeoCov19: A dataset of hundreds of millions of multilingual COVID-19 tweets with location information*. ACM Digital Library. [https://dl.acm.org/doi/10.1145/3404820.3404823](https://dl.acm.org/doi/10.1145/3404820.3404823)
+
+- **Gupta, R., Vishwanath, A., & Yang, Y.** (2022). *COVID-19 Twitter Dataset with Latent Topics, Sentiments and Emotions Attributes*. Ann Arbor, MI: Inter-university Consortium for Political and Social Research (ICPSR). [https://doi.org/10.3886/E120321V12](https://doi.org/10.3886/E120321V12)
+
+- **Mathieu, E., Ritchie, H., Rodés-Guirao, L., Appel, C., Gavrilov, D., Giattino, C., Hasell, J., Macdonald, B., Dattani, S., Beltekian, D., Ortiz-Ospina, E., & Roser, M.** (2020). *Coronavirus (COVID-19) Cases*. Published online at *Our World in Data*. Retrieved from [https://ourworldindata.org/covid-cases](https://ourworldindata.org/covid-cases)
+
+- **COVID-19 Data Hub**. (2020). *COVID-19 Global Case and Policy Dataset*. Retrieved from [https://github.com/covid19datahub/COVID19](https://github.com/covid19datahub/COVID19)
 
 ---
 
