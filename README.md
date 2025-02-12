@@ -1,29 +1,61 @@
-# INFOSCI 301 Final Project
+# Navigating COVID-19 Research Data: An Integrated Analysis of Epidemiology, Government Policies, and Public Sentiment
 
+## Project Information
 **Author**: Shouzhifan Zhu  
 **Instructor**: Prof. Luyao Zhang  
+
+##
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Research Questions](#research-questions)
 3. [Dataset](#dataset)
-    - [Original Data Sources and Collection](#original-data-sources-and-collection)
-    - [Geographical Coverage](#geographical-coverage)
-    - [Temporal Coverage](#temporal-coverage)
-    - [Languages](#languages)
-    - [Data Structure](#data-structure)
-    - [Data Features](#data-features)
-    - [Data Processing and Preprocessing](#data-processing-and-preprocessing)
 4. [Analysis Tools](#analysis-tools)
 5. [Results](#results)
 6. [References](#references)
 
 ---
-
 ## Introduction
-This project explores the relationship between global COVID-19 infection trends, government policies, and public sentiment on social media. By integrating epidemiological data, policy response measures, and large-scale Twitter data, we aim to understand how public discussions evolved alongside the pandemic's progression. The project employs **SHAP (Shapley Additive Explanations)** to break down the contribution of various temporal, geographical, and policy-driven factors, offering interpretable insights into what drives pandemic-related social media engagement.
+This project examines the interplay between global COVID-19 infection trends, government policies, and public sentiment on social media. By integrating epidemiological data, policy measures, and large-scale Twitter analysis, we assess how public discourse and engagement evolved throughout different phases of the pandemic. Our study explores key factors influencing tweet volumes and sentiment, highlighting the complex interaction between policy responses, public reactions, and the shifting dynamics of pandemic progression across regions. Through a multi-dimensional approach, this research provides insights into the relationship between crisis communication, government interventions, and public sentiment trends during the COVID-19 pandemic.
 
-<img width="888" alt="image" src="https://github.com/user-attachments/assets/64a584b7-17eb-40c7-ad71-48f2257ffe71" />
+![image](https://github.com/user-attachments/assets/6af6a0c0-29e6-4a74-a439-389d08f0ae0e)
+
+
+## Disclaimer
+
+This project was conducted as part of **INFOSCI 301: Data Visualization and Information Aesthetics**, under the guidance of **Prof. Luyao Zhang** at **Duke Kunshan University** in Autumn 2024. We deeply appreciate Professor Zhang’s invaluable insights, encouragement, and expertise, which greatly enhanced our understanding of data-driven storytelling and analytical visualization. The project integrates multiple datasets to explore the intersection of epidemiology, policy measures, and public sentiment during the COVID-19 pandemic.
+
+## Acknowledgments
+
+We would like to extend our gratitude to the following individuals and resources:
+
+- **Prof. Luyao Zhang** for providing insightful guidance, constructive feedback, and continuous support throughout the course.
+- **Our classmates** for their valuable discussions, suggestions, and collaboration during the project.
+- **AIGC tools** like **ChatGPT** for assistance in refining ideas, debugging code, and enhancing our analysis; **Whimsical** for aiding in the creation of flowcharts and visual frameworks.
+- **Datasets** that formed the foundation of our research:
+  - [**GeoCov19 Twitter Dataset**](https://crisisnlp.qcri.org/covid19) for geotagged and location-based COVID-19 tweet analysis.
+  - [**OpenICPSR COVID-19 Sentiment and Topic Dataset**](https://www.openicpsr.org/openicpsr/project/120321/version/V12/view) for sentiment classification and topic modeling.
+  - [**Our World in Data COVID-19 Statistics**](https://ourworldindata.org/covid-cases) for global epidemiological trends and policy records.
+  - [**COVID-19 Global Case and Policy Dataset**](https://covid19datahub.io/) for tracking country-level COVID-19 cases, interventions, and public health measures.
+
+Their collective contributions have significantly shaped the depth and scope of our project.
+
+## Navigation Instructions
+
+To explore this repository, follow the instructions below:
+
+### [Code](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code)
+The `Code` folder contains scripts for data processing, analysis, and visualization used in this project.
+
+### [Sample Datasets & Processed Data](https://github.com/ManchesterBlue/Info301_Final/tree/main/Data)
+The `Data` folder includes all datasets utilized in this study, encompassing both raw and processed data.
+
+### [Documentation](https://github.com/ManchesterBlue/Info301_Final/tree/main/Docs)
+The `Docs` folder contains supplementary materials, reports, and references for the project.
+
+### [Pilot Visualizations & Figures](https://github.com/ManchesterBlue/Info301_Final/tree/main/Visualization)
+The `Visualization` folder provides sample visualizations and figures generated during the analysis.
+
 
 
 ---
@@ -31,16 +63,16 @@ This project explores the relationship between global COVID-19 infection trends,
 ## Research Questions
 
 1. **COVID-19 Spread and Evolution**  
-   - How did global COVID-19 infection trends vary across different regions?
-   - What were the temporal patterns of pandemic progression?
+   - How did COVID-19 infection trends fluctuate across different regions and time periods?  
+   - What patterns emerged in confirmed cases, hospitalizations, and deaths over the course of the pandemic?  
 
 2. **Government Policy Impact**  
-   - How did policy stringency levels (e.g., lockdowns, travel bans) influence infection trends?
-   - Did stricter policies correlate with changes in public sentiment and engagement?
+   - How did various government interventions (e.g., lockdowns, travel restrictions, vaccination campaigns) influence infection rates?  
+   - Did stricter policies lead to noticeable shifts in public sentiment and social media engagement?  
 
-3. **Public Sentiment and Social Media Engagement**  
-   - How did COVID-19-related Twitter activity vary across time and geography?
-   - What were the predominant emotions and topics discussed on social media during key pandemic phases?
+3. **Public Sentiment and Social Media Trends**  
+   - How did COVID-19-related Twitter activity change over time and across geographical regions?  
+   - What were the dominant emotions and topics discussed, and how did they align with major pandemic events and policy changes?  
 
 ---
 
@@ -52,36 +84,7 @@ This project integrates multiple datasets to analyze the impact of COVID-19 on g
 - [**Our World in Data COVID-19 Statistics**](https://ourworldindata.org/covid-cases): Aggregated COVID-19 case numbers, hospitalizations, recoveries, and government policy responses.
 - [**COVID-19 Global Case and Policy Dataset**](https://covid19datahub.io/): This dataset compiles country-level data on confirmed COVID-19 cases, deaths, recoveries, hospitalizations, and vaccinations.
 
-### Original Data Sources and Collection
-- **Social Media (Twitter)**: Public discussions on COVID-19 were collected using over **800 predefined keywords** and hashtags.
-- **Epidemiological Data**: Official records on confirmed cases, deaths, recoveries, and hospitalizations.
-- **Policy Data**: Government responses, including lockdown measures, economic support, and vaccination policies.
-
-### Geographical Coverage
-- **Global Scope**: The dataset includes data from over **218 countries** and **47,000+ cities**.
-- **Location-based Features**: Country and city-level analysis using **ISO 3166-1** country codes.
-
-### Temporal Coverage
-- **From the pandemic onset to various key phases**: The study spans multiple timeframes, focusing on key pandemic milestones.
-- **Timestamped Data**: Social media activity is mapped against real-world events to detect correlation patterns.
-
-### Languages
-- **Multilingual Analysis**: Tweets in **62+ languages** enable cross-cultural sentiment analysis.
-
-### Data Structure
-- **Social Media Data**: Includes tweet ID, timestamps, user information, location, text content, and hashtags.
-- **Epidemiological Data**: Daily and cumulative case numbers, deaths, and recovery trends.
-- **Policy Data**: Stringency measures, economic relief, and vaccination rollout tracking.
-
-### Data Features
-- **Temporal**: `Weekday`, `Month`, `Weekend Effect`, `Policy Implementation Date`.
-- **Geographical**: Country, state, city-based variations in COVID-19 discourse.
-- **Sentiment and Topic Analysis**: Classifications of public sentiment (positive, neutral, negative) and discussion topics.
-
-### Data Processing and Preprocessing
-- **Standardization**: Cleaning and structuring timestamps, geolocation data, and policy response tracking.
-- **Feature Engineering**: Extracting key variables for machine learning models.
-- **Aggregation**: Analysis of tweet counts, case numbers, and policy measures across time intervals.
+By integrating these diverse datasets, our study captures the intersection of epidemiological trends, government interventions, and public sentiment. This approach enables a deeper understanding of how policy measures shaped public discourse and how social media activity reflected pandemic developments. The analysis also helps assess whether social media trends can serve as early indicators of public health concerns, providing valuable insights for crisis management and policy adaptation.
 
 ---
 
