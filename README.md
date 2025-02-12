@@ -97,69 +97,113 @@ By integrating these diverse datasets, our study captures the intersection of ep
 
 ---
 
-## Visualization
-### Global Spread of COVID-19 Over Time
-<img width="888" alt="image" src="https://github.com/user-attachments/assets/153a19fa-06c0-4913-a68c-5b1676e78ec4" />
+### Statement of Intellectual and Professional Growth
 
-### Government Policy Responses and Their Evolution
-<img width="888" alt="image" src="https://github.com/user-attachments/assets/8b049ab5-4970-444d-95ae-678f239a3ee5" />
-
-### Tweet Volume and Global Social Media Engagement
-<img width="888" alt="image" src="https://github.com/user-attachments/assets/a95898ba-f407-41d4-9247-a2ffce4b2033" />
-
-### Relationship Between Confirmed Cases and Government Stringency
-<img width="888" alt="image" src="https://github.com/user-attachments/assets/aaf0e53b-9fa9-4d03-85ff-a6d53c358f0a" />
-
-### COVID-19 Trends in the Most Affected Countries
-<img width="888" alt="image" src="https://github.com/user-attachments/assets/cf7a427f-3d50-4076-9eab-02ede4a01e95" />
-
-### SHAP Summary Plot for Temporal Features (Tweet Volume)
-<img width="369" alt="image" src="https://github.com/user-attachments/assets/b4925a41-1690-4c20-9315-c4ca2a8add25" />
-
-### SHAP Summary Plot for Temporal Features (COVID-19 Cases)
-<img width="371" alt="image" src="https://github.com/user-attachments/assets/dde2a20d-63c3-496d-a5c1-a5193b6041a7" />
-
-### SHAP Summary Plot for Geographical Features (Tweet Volume)
-<img width="234" alt="image" src="https://github.com/user-attachments/assets/addf1f6b-2ac0-4da1-bf23-ef4f9d2281f5" />
-
-### SHAP Summary Plot for Geographical Features (COVID-19 Cases)
-<img width="283" alt="image" src="https://github.com/user-attachments/assets/11a99056-a080-4692-8bea-c578ef24d39d" />
-
-### SHAP Summary Plot for Government Policy Measures
-<img width="299" alt="image" src="https://github.com/user-attachments/assets/4d8bf4d8-e93e-462f-b04a-2e203c5a797b" />
-
+Through this course, we have gained a deeper appreciation for data visualization techniques and their significance in effectively conveying complex information. This project has sharpened our ability to create engaging, interactive visualizations that not only present data but also enhance comprehension. Additionally, it has strengthened our proficiency in transforming raw data into meaningful narratives that drive insightful discussions. The collaborative nature of this experience has further refined our teamwork and communication abilities, as we worked closely to tackle data-driven challenges, integrate multiple perspectives, and develop visual storytelling approaches suited for professional contexts.
 
 ---
 
-## Analysis Tools
+## Implementation
 
-- **Machine Learning Models**: Logistic Regression and **XGBoost** for trend prediction and sentiment analysis.
-- **SHAP Analysis**: To quantify the influence of different factors on tweet volumes and infection rates.
-- **Geospatial Analysis**: Visualization of global tweet distribution using **GeoPandas** and **Plotly**.
-- **Time Series Analysis**: Exploring weekly/monthly variations in tweet activity and case trends.
+### Requirements
 
----
+To set up and run this project, you will need to install the following dependencies:
 
-## Results
+- pandas
+- geopandas
+- plotly
+- pycountry
+- xgboost
+- shap
+- pmdarima
+- numpy
+- dash
+- json
+- dash_cytoscape
+- networkx
 
-### 1. Temporal Dynamics and SHAP Analysis
-- **Weekend Effect**: Higher social media engagement during weekends.
-- **Policy Shifts and Public Sentiment**: Stricter lockdowns correlated with spikes in negative sentiment and higher tweet volumes.
+### Installation
 
-### 2. Geospatial Trends in Social Media Activity
-- **Countries with High Tweet Volume**: USA, China, India, UK, Brazil.
-- **Regions with Low Engagement**: Parts of Africa and Central Asia showed minimal COVID-19-related social media discussions.
+Clone the repository and install dependencies:
 
-### 3. Relationship Between Public Sentiment and Government Policies
-- **Strict Government Policies → Increased Public Frustration**: Higher stringency scores aligned with spikes in tweets expressing negative sentiment.
-- **Vaccine Rollouts → Positive Sentiment Spikes**: Public optimism increased in regions with successful vaccine distributions.
+```bash
+git clone https://github.com/ManchesterBlue/Info301_Final.git
+cd Info301_Final
+pip install -r requirements.txt
+```
+### Usage
 
----
+ 1. Visualize COVID-19 Trends and Policy Impacts
 
-## Conclusion
-This study highlights how public sentiment and online discussions evolved alongside COVID-19 case trends and policy interventions. By leveraging **SHAP analysis**, we identified key temporal and geographical drivers of pandemic-related social media activity. The results suggest that **public engagement with COVID-19 discussions was heavily influenced by weekends, policy shifts, and regional differences in government responses**.
+- **[Time-series analysis and policy responses](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code/app)**
+  
+  ```bash
+  python Code/app/trend_chart.py
+  ```
 
-Future work can expand on this by integrating **real-time social media monitoring**, further refining sentiment analysis techniques, and exploring additional contextual factors influencing public discourse.
+- **[Choropleth map showing global COVID-19 case distribution](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code/app)**
+  
+  ```bash
+  python Code/app/choropleth_map.py
+  ```
+
+- **[Curve graphs illustrating pandemic progression](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code)**
+  
+  ```bash
+  python Code/Curve_Graphs.ipynb
+  ```
+
+ 2. Explore Social Media Reactions and Sentiment
+
+- **[Visualizing emotion intensity and sentiment in tweets](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code)**
+  
+  ```bash
+  python Code/Emotion_and_its_Intensity.ipynb
+  ```
+
+- **[Keyword network analysis from Twitter data](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code/app)**
+  
+  ```bash
+  python Code/app/keyword_network.py
+  ```
+
+ 3. SHAP Analysis for Policy and Social Media Influence
+
+- **[SHAP interpretation of confirmed case trends](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code)**
+  
+  ```bash
+  python Code/SHAP_Confirmed_Cases.ipynb
+  ```
+
+- **[SHAP interpretation for Twitter engagement](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code)**
+  
+  ```bash
+  python Code/SHAP_TWEET.ipynb
+  ```
+
+ 4. Geospatial Visualizations and Mapping
+
+- **[Mapping tweet distribution and corresponding SHAP visualizations](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code)**
+  
+  ```bash
+  python Code/INFO.ipynb
+  ```
+
+- **[Interactive COVID-19 spread and interventions](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code)**
+  
+  ```bash
+  python Code/map1.ipynb
+  python Code/map2.ipynb
+  ```
+
+ 5. Policy Response and Network Analysis
+
+- **[Analyzing government policy responses](https://github.com/ManchesterBlue/Info301_Final/tree/main/Code/app)**
+  
+  ```bash
+  python Code/app/policy_response.py
+  ```
+
 
 ---
 
