@@ -159,4 +159,3 @@ Future work can expand on this by integrating **real-time social media monitorin
 
 ---
 
-**For contributions and discussions, please open an Issue or submit a Pull Request on GitHub.**
