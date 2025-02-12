@@ -88,9 +88,9 @@ By integrating these diverse datasets, our study captures the intersection of ep
 ## Embedded Media
 ### Demo Video
 
-[![Watch the video](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://github.com/ManchesterBlue/Info301_Final/raw/main/Docs/demo_video.mp4)
+[![Watch the video](https://github.com/ManchesterBlue/Info301_Final/raw/main/Docs/demo_video.mp4)](https://github.com/ManchesterBlue/Info301_Final/raw/main/Docs/demo_video.mp4)
 
-🔹 **This is a no-subtitle version.**  
+🔹 **The video can be viewed in the repository at** [Docs/demo_video.mp4](https://github.com/ManchesterBlue/Info301_Final/tree/main/Docs/demo_video.mp4).  
 🔹 **For the subtitled version, please visit** [this link](https://duke.box.com/s/x0pja0lni6inxcb41dkn40tsviadxgts).
 
 
